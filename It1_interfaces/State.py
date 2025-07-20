@@ -2,7 +2,6 @@ from Command import Command
 from Moves import Moves
 from Graphics import Graphics
 from Physics import Physics
-from State import State
 from typing import Dict
 import time
 
@@ -15,7 +14,7 @@ class State:
         """Initialize state with moves, graphics, and physics components."""
         pass
 
-    def set_transition(self, event: str, target: State):
+    def set_transition(self, event: str, target: "State"):
         """Set a transition from this state to another state on an event."""
         # event= "Move"
         self.transitions[event] = target
@@ -27,7 +26,7 @@ class State:
         self._physics.reset()
         pass
 
-    def update(self, now_ms: int) -> State:
+    def update(self, now_ms: int) -> "State":
         """Update the state based on current time."""
         self._graphics.reset(now_ms)
         cmd = self._physics.reset(now_ms)
@@ -36,7 +35,7 @@ class State:
 
         return self
 
-    def process_command(self, cmd: Command, now_ms: int) -> State:
+    def process_command(self, cmd: Command, now_ms: int) -> "State":
         """Get the next state after processing a command."""
         # Command = QBMe5e8
         # transitions = {

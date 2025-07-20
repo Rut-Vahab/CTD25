@@ -1,5 +1,5 @@
 import cv2
-from img import Img
+from It1_interfaces.img import Img
 
 
 def main():

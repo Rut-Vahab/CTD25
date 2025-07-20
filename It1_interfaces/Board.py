@@ -16,3 +16,4 @@ class Board:
     def clone(self) -> "Board":
         """Clone the board with a copy of the image."""
         pass
+    
